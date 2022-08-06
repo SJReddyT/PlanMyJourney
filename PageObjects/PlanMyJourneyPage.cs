@@ -22,6 +22,9 @@ namespace UI_Automation.PageObjects
         private By EditJourney = By.LinkText("Edit journey");
         private By ClearSearch = By.XPath("//*[@id='search-filter-form-0']/div/div/a");
         private By InvalidSearchError = By.XPath("//li[@class='field-validation-error']");
+        private By RecentsTab = By.XPath("//*[@id='jp-recent-tab-jp']/a");
+        private By PlanMyJourney = By.LinkText("Plan a journey");
+        private By RecentSearchResults = By.XPath("//*[@id='jp-recent-content-jp-']/a");
         #endregion
 
         #region Constructor
@@ -97,6 +100,23 @@ namespace UI_Automation.PageObjects
         {
             IWebElement element = driver.FindElement(InvalidSearchError);
             return element.Text;
+        }
+
+        public void ClickRecentsTab()
+        {
+            driver.FindElement(RecentsTab).Click();
+        }
+
+        public void NavigateToPlanAJourney()
+        {
+            driver.FindElement(PlanMyJourney).Click();
+        }
+
+        public String GetRecentlySearchedToLocation()
+        {
+            IWebElement element = driver.FindElement(RecentSearchResults);
+            Console.WriteLine(element.GetAttribute("data-from"));
+            return element.GetAttribute("data-from");
         }
 
 

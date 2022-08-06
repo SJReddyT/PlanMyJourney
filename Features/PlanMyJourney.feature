@@ -45,3 +45,12 @@ Scenario: 4.0_Change time functionality
 	And I Update From "Whitechapel" location
 	When I click on update journey Button
 	Then Journey results show details for "Whitechapel" and "Euston"
+
+
+ Scenario: 6.0_Recent Journeys
+    Given I select valid From "Stratford" and To "Euston" Locations
+	When I click on Plan my journey Button
+	Then "Journey results" page should be returned
+	When I navigate back to Plan my Journey
+	And I click on Recents tab on Plan my journey page
+	Then Recently serched journey should be available

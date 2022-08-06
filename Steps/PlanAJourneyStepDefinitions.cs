@@ -96,6 +96,24 @@ namespace UI_Automation.Steps
            
         }
 
+        [When(@"I click on Recents tab on Plan my journey page")]
+        public void WhenIClickOnRecentsTabOnPlanMyJourneyPage()
+        {
+            _planMyJourneyPage.ClickRecentsTab();
+        }
+
+        [When(@"I navigate back to Plan my Journey")]
+        public void WhenINavigateBackToPlanMyJourney()
+        {
+            _planMyJourneyPage.NavigateToPlanAJourney();
+        }
+
+        [Then(@"Recently serched journey should be available")]
+        public void ThenRecentlySerchedJourneyShouldBeAvailable()
+        {
+            _planMyJourneyPage.GetRecentlySearchedToLocation();
+        }
+
 
 
     }
